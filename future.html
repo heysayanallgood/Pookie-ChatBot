@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Our Forever 💍</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: radial-gradient(circle at top, #2b1055, #000);
+            color: white;
+        }
+
+        /* Dark cinematic overlay */
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 1;
+        }
+
+        /* Main cinematic card */
+        .scene {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 420px;
+            width: 90%;
+            padding: clamp(25px, 5vw, 40px);
+            border-radius: 30px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+            text-align: center;
+            z-index: 2;
+        }
+
+        h1 {
+            color: #ffd1f0;
+            font-size: clamp(22px, 6vw, 28px);
+            margin: 0 0 15px 0;
+        }
+
+        p {
+            font-size: clamp(13px, 3.5vw, 15px);
+            line-height: 1.8;
+            margin: 15px 0;
+        }
+
+        button {
+            margin-top: 20px;
+            background: linear-gradient(135deg, #ff4d6d, #ff8fab);
+            color: white;
+            border: none;
+            padding: clamp(10px, 2vw, 14px) clamp(25px, 5vw, 35px);
+            border-radius: 35px;
+            font-size: clamp(14px, 3vw, 16px);
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            transition: transform 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        /* Proposal Screen */
+        .proposal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle, #ff9a9e, #000);
+            z-index: 5;
+            text-align: center;
+            padding: clamp(20vh, 15vh, 30vh) 20px 20px;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .proposal h2 {
+            font-size: clamp(28px, 7vw, 36px);
+            margin: 0 0 20px 0;
+        }
+
+        /* Ring Animation */
+        .ring {
+            font-size: clamp(50px, 12vw, 60px);
+            animation: drop 1.8s ease-out forwards;
+        }
+
+        @keyframes drop {
+            0% {
+                transform: translateY(-200px) scale(0.3);
+                opacity: 0;
+            }
+            60% {
+                transform: translateY(0) scale(1.1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Fireworks */
+        .firework {
+            position: fixed;
+            font-size: clamp(16px, 5vw, 20px);
+            animation: explode 1.5s forwards;
+            pointer-events: none;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        /* Secret Message */
+        .secret {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle, #000, #1a0033);
+            z-index: 10;
+            text-align: center;
+            padding: clamp(20px, 5vh, 22vh) 20px 20px;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .secret-box {
+            background: white;
+            color: #333;
+            max-width: 380px;
+            width: 95%;
+            margin: auto;
+            padding: clamp(20px, 4vw, 30px);
+            border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .secret-box h2 {
+            color: #ff4d6d;
+            font-size: clamp(18px, 5vw, 22px);
+            margin: 0 0 15px 0;
+        }
+
+        .secret-box p {
+            font-size: clamp(13px, 3.5vw, 15px);
+            line-height: 1.6;
+            color: #333;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                overflow-y: auto;
+            }
+
+            .scene {
+                position: absolute;
+            }
+
+            .proposal {
+                padding-top: 25vh;
+            }
+
+            .secret {
+                padding-top: 20vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="overlay"></div>
+
+<!-- INTRO SCENE -->
+<div class="scene">
+    <h1>Our Forever 💍</h1>
+    <p>
+        In every universe,<br>
+        in every lifetime,<br>
+        I still find my way back to you.
+    </p>
+    <button onclick="startProposal()">One Last Question 💖</button>
+</div>
+
+<!-- PROPOSAL -->
+<div class="proposal" id="proposal">
+    <div class="ring">💍</div>
+    <h2>Will You Be Mine Forever?</h2>
+    <button onclick="celebrate()">YES 💖</button>
+</div>
+
+<!-- SECRET PROMISE -->
+<div class="secret" id="secret">
+    <div class="secret-box">
+        <h2>🔐 My Promise To You, <span style="color:#ff4d6d;">Gul Guli</span> 💖</h2>
+
+        <p>
+            Gul Guli, from the moment you came into my life,  
+            everything started feeling warmer, calmer, and more meaningful.<br><br>
+
+            I don't promise a perfect life or perfect days.<br>
+            I promise honesty when things are messy,  
+            patience when things are hard,  
+            and effort even when love feels quiet.<br><br>
+
+            I promise to hold your hand when the world feels heavy,  
+            to laugh with you over the smallest things,  
+            and to choose you — not once, but every single day.<br><br>
+
+            Gul Guli, you are not just my love.  
+            You are my comfort,  
+            my safe place,  
+            and the person I want beside me in every tomorrow.<br><br>
+
+            Whatever the future looks like,  
+            I want it to be with you. 💍
+        </p>
+
+        <p style="margin-top:15px;">
+            — Yours, always 💖
+        </p>
+
+        <button onclick="goHome()">Back to Us 🫶</button>
+    </div>
+</div>
+
+<!-- MUSIC -->
+<audio id="music" autoplay loop>
+    <source src="./Die With A Smile - PagalHits.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    function startProposal() {
+        document.body.style.overflow = "hidden";
+        document.getElementById("proposal").style.display = "block";
+    }
+
+    function celebrate() {
+        for (let i = 0; i < 25; i++) {
+            let f = document.createElement("div");
+            f.className = "firework";
+            f.innerHTML = "🎆";
+            f.style.left = Math.random() * 100 + "vw";
+            f.style.top = Math.random() * 100 + "vh";
+            document.body.appendChild(f);
+            setTimeout(() => f.remove(), 1500);
+        }
+
+        setTimeout(() => {
+            document.getElementById("secret").style.display = "block";
+        }, 2000);
+    }
+
+    function goHome() {
+        window.location.href = "index.html";
+    }
+</script>
+
+</body>
+</html>
