@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pookie World 💖</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        /* Floating Hearts */
+        .heart {
+            position: absolute;
+            font-size: clamp(16px, 5vw, 24px);
+            animation: float 8s infinite ease-in;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-10vh); opacity: 0; }
+        }
+
+        /* Center Card */
+        .card {
+            background: white;
+            width: 90%;
+            max-width: 350px;
+            padding: clamp(20px, 5vw, 30px);
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+        }
+
+        h1 { 
+            color: #ff4d6d;
+            font-size: clamp(24px, 6vw, 32px);
+            margin: 0 0 10px 0;
+        }
+
+        p {
+            font-size: clamp(14px, 4vw, 16px);
+            margin: 10px 0;
+        }
+
+        button {
+            margin-top: 12px;
+            background: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-size: clamp(14px, 3vw, 16px);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover { background: #e63950; }
+
+        button:active { transform: scale(0.98); }
+
+        /* Floating Stickers */
+        .sticker {
+            position: absolute;
+            width: clamp(60px, 15vw, 90px);
+            border-radius: 15px;
+            animation: drift 6s infinite alternate ease-in-out;
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        @keyframes drift {
+            from { transform: translateY(0px); }
+            to { transform: translateY(15px); }
+        }
+
+        .tl { top: 15px; left: 15px; }
+        .tr { top: 15px; right: 15px; }
+        .bl { bottom: 15px; left: 15px; }
+        .br { bottom: 15px; right: 15px; }
+
+        /* Message Bubble */
+        .message {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 15px 25px;
+            border-radius: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 6;
+            font-size: clamp(13px, 3vw, 15px);
+            text-align: center;
+            max-width: 85vw;
+        }
+
+        /* Music Button */
+        .music-btn {
+            position: fixed;
+            top: 50%;
+            right: 10px;
+            background: #ff4d6d;
+            color: white;
+            border-radius: 50%;
+            padding: 12px 15px;
+            font-size: clamp(16px, 4vw, 18px);
+            cursor: pointer;
+            z-index: 10;
+            border: none;
+            transition: background 0.3s;
+        }
+
+        .music-btn:hover {
+            background: #e63950;
+        }
+
+        @media (max-width: 480px) {
+            .sticker {
+                width: 50px;
+            }
+
+            .tl { top: 10px; left: 10px; display: block; }
+            .tr { top: 10px; right: 10px; display: block; }
+            .bl { bottom: 10px; left: 10px; display: block; }
+            .br { bottom: 10px; right: 10px; display: block; }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Floating Hearts -->
+<div class="heart" style="left:10%; animation-delay:0s;">💖</div>
+<div class="heart" style="left:30%; animation-delay:2s;">💕</div>
+<div class="heart" style="left:50%; animation-delay:4s;">💗</div>
+<div class="heart" style="left:70%; animation-delay:1s;">💞</div>
+<div class="heart" style="left:90%; animation-delay:3s;">💘</div>
+
+<!-- Stickers (YOUR IMAGES) -->
+<img src="https://i.pinimg.com/736x/1e/d0/42/1ed0429e153727fceb2dcda0ddbb7dca.jpg" class="sticker tl" onclick="showMsg('You are my comfort 💕')">
+<img src="https://i.pinimg.com/236x/c7/b0/c5/c7b0c5ffcb5bd0c6a9385e8a6d1a4f8e.jpg" class="sticker tr" onclick="showMsg('Forever my pookie 🐱💖')">
+<img src="https://preview.redd.it/me-and-who-i-already-know-who-v0-zhre96nabw1e1.jpeg?auto=webp&s=f2f70d379728b2b3e9f88b7a4fc6bbb4bf23a730" class="sticker bl" onclick="showMsg('My safe place is you 🫶')">
+<img src="https://i.redd.it/me-and-pookie-v0-8oq268bjcerc1.jpg?width=1200&format=pjpg&auto=webp&s=31ee3bc6977be56db78d4ce0016baefa3ee2b0b5" class="sticker br" onclick="showMsg('Every day, I choose you 💘')">
+
+<!-- Main Card -->
+<div class="card">
+    <h1>Hello My Pookie 💖</h1>
+    <p>If love had a timeline, where do we go?</p>
+
+    <form>
+        <button formaction="past.html">🕰️ Our Past</button><br><br>
+        <button formaction="present.html">✨ Our Present</button><br><br>
+        <button formaction="future.html">💍 Our Future</button><br><br>
+        <button formaction="signup.php">💬 Our Chat</button>
+    </form>
+</div>
+
+<!-- Message Bubble -->
+<div class="message" id="msgBox"></div>
+
+<!-- Music -->
+<audio id="music" loop>
+    <source src=".\ItsAMoney_-_Until_I_Found_You_CeeNaija.com_.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-btn" onclick="toggleMusic()">🎵</button>
+
+<script>
+    function showMsg(text) {
+        let box = document.getElementById("msgBox");
+        box.innerHTML = text;
+        box.style.display = "block";
+        setTimeout(() => box.style.display = "none", 2500);
+    }
+
+    function toggleMusic() {
+        let m = document.getElementById("music");
+        if (m.paused) m.play();
+        else m.pause();
+    }
+</script>
+
+</body>
+</html>
