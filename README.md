@@ -75,6 +75,11 @@ but with intention, emotion, and care.
 ✨ And sometimes, that makes all the difference.
 
 <p align="center"> <i>“The best things are felt before they are understood.”</i> </p> </details>
-<p align="center"> <img src="https://ggforever.lovestoblog.com/?i=1" width="420"/> </p>
+<p align="center">
+  <a href="https://ggforever.lovestoblog.com/?i=1" target="_blank">
+    Visit GG Forever 🌹
+  </a>
+</p>
+
 
 
