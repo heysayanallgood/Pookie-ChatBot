@@ -23,6 +23,8 @@ This project demonstrates how design and development can merge to create a grace
 
 
 
+
+
 </p>
 🌙 Design Philosophy
 
@@ -73,6 +75,6 @@ but with intention, emotion, and care.
 ✨ And sometimes, that makes all the difference.
 
 <p align="center"> <i>“The best things are felt before they are understood.”</i> </p> </details>
-<p align="center"> <img src="https://github-readme-stats.vercel.app/api?username=YOUR_USERNAME&show_icons=true&theme=radical&hide_border=true" width="420"/> </p>
+<p align="center"> <img src="https://github-readme-stats.vercel.app/api?username=heysayanallgood&show_icons=true&theme=radical&hide_border=true" width="420"/> </p>
 
-Replace YOUR_USERNAME with your actual GitHub username.
+
